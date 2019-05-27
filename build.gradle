@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.8'
+}
+apply plugin: 'idea'
+apply plugin: 'org.jetbrains.intellij'
+apply plugin: 'java'
+
+group 'com.bearever'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    pluginName "unitydependency"
+    //IC表示的是最低版本
+    version 'IC-2018.2'
+    sandboxDirectory "$project.buildDir/dependencybox"
+    updateSinceUntilBuild false
+}
+patchPluginXml {
+    changeNotes """
+      初始化
+      """
+}
+
+publishPlugin {
+    username ""
+    password ""
+    channels 'beta'
+}

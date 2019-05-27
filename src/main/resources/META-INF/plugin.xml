@@ -1,0 +1,32 @@
+<idea-plugin>
+    <id>com.bearever.dependency</id>
+    <name>UnityDependency</name>
+    <vendor email="luomingbear@163.com" url="http://www.bearever.cn">Bearever</vendor>
+
+    <description><![CDATA[
+    统一依赖管理的插件，方便管理项目里面的依赖版本，使得项目的所有模块依赖同一个库的时候版本号是一致的，优化依赖，减少重复依赖，美化build.gradle文件代码
+    <h3>使用方式</h3>
+    1. 点击Tool->Dependency->Create Config<br>
+    2. 点击Tool->Dependency->Unity Dependency
+    ]]></description>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+
+        <group id="dependency" text="Dependency" description="依赖管理插件" icon="/icons/icon_dependency.png" popup="true">
+            <action id="dependency.config" class="actions.ConfigAction" text="Create config.gradle"
+                    description="create config.gradle file in rootProject">
+                <add-to-group group-id="ToolsMenu" anchor="last"/>
+            </action>
+
+            <action id="dependency.unity" class="actions.UnityAction" text="Unity Dependency"
+                    description="unity dependency with config.gradle"/>
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </group>
+
+    </actions>
+</idea-plugin>
